@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start:backend": "node index.js",
-    "start:frontend": "cd frontend && http-server ./public -p 4000",
+    "start:frontend": "cd frontend && http-server ./public -p 4200",
     "start": "concurrently \"npm run start:backend\" \"npm run start:frontend\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -21,6 +21,7 @@
     "typescript": "^5.6.2"
   },
   "dependencies": {
+    "coordinadora": "file:",
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "express": "^4.21.0",

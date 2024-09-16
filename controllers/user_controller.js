@@ -1,7 +1,7 @@
 const UserService = require('../services/user_services')
 
 class UserController{
-    static async getAllUsers() {
+    static async getAllUsers(req, res) {
         try{
             const users = await UserService.getAllUsersServices();
             res.status(200).json(users);

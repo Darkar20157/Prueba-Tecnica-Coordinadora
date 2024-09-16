@@ -23,9 +23,7 @@
             </div>
         </form>
         <div class="card-footer">
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                Abrir Modal
-            </button>
+            <button type="button" class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#exampleModal">Registrar</button>
         </div>
     </div>
 </div>
@@ -36,36 +34,39 @@
           <h5 class="modal-title" id="exampleModalLabel">Registrate</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <div class="modal-body">
-            <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                    <span class="input-group-text"><i class="fa-solid fa-id-card"></i></span>
-                </div>
-                <input type="text" name="document_nro" class="form-control" placeholder="Numero Documento" required>
+        <form id="form-register">
+            <div class="modal-body">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fa-solid fa-id-card"></i></span>
+                        </div>
+                        <input type="text" name="document_nro" class="form-control" placeholder="Numero Documento" maxlength="12" required>
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fa-solid fa-person"></i></span>
+                        </div>
+                        <input type="text" name="name" class="form-control" placeholder="Nombre Completo" maxlength="64" required>
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fa-solid fa-mobile-retro"></i></span>
+                        </div>
+                        <input type="text" name="phone" class="form-control" placeholder="Celular" maxlength="12" required>
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                        </div>
+                        <input type="email" name="email" class="form-control" placeholder="Correo" maxlength="120" required>
+                    </div>
+                
             </div>
-            <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                    <span class="input-group-text"><i class="fa-solid fa-id-card"></i></span>
-                </div>
-                <input type="text" name="name" class="form-control" placeholder="Nombre Completo" required>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                <button type="submit" class="btn btn-primary">Guardar cambios</button>
             </div>
-            <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                    <span class="input-group-text"><i class="fa-solid fa-id-card"></i></span>
-                </div>
-                <input type="text" name="phone" class="form-control" placeholder="Celular" required>
-            </div>
-            <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                    <span class="input-group-text"><i class="fa-solid fa-id-card"></i></span>
-                </div>
-                <input type="text" name="email" class="form-control" placeholder="Numero Documento" required>
-            </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-          <button type="button" class="btn btn-primary">Guardar cambios</button>
-        </div>
+        </form>
       </div>
     </div>
 </div>

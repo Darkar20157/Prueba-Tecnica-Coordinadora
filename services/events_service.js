@@ -1,13 +1,14 @@
 const formatDate = require('../helper/helper');
+const EventRepository = require('../repository/events_repository');
 
 class EventService{
     static async getAllEventsServices(filters) {
-        const res = await UserRepository.getFindAllEventsRepository();
+        const res = await EventRepository.getFindAllEventsRepository();
         return res;
     }
 
-    static async getEventServices({document_nro, name}) {
-        const res = await UserRepository.getEventRepository(document_nro, name);
+    static async getEventServices({id}) {
+        const res = await EventRepository.getEventRepository(id);
         return res;
     }
     
@@ -16,7 +17,12 @@ class EventService{
             userData.active = true;
             userData.issue_date = formatDate(new Date());
         }
-        const res = await UserRepository.saveEventRepository(userData);
+        const res = await EventRepository.saveEventRepository(userData);
+        return res;
+    }
+
+    static async deleteEventServices({id}) {
+        const res = await EventRepository.deleteEventRepository(id);
         return res;
     }
 }
