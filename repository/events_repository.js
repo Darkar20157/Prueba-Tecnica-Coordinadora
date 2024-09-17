@@ -123,16 +123,20 @@ class EventRepository{
 
     static async deleteEventRepository(id) {
         try{
-            let query = "DELETE FROM EVENTS WHERE 1 = 1\n";
+            let query = "DELETE FROM USERS_ASSIST WHERE 1 = 1";
             const values = [];
             let paramIndex = 1;
             if(id){
-                query += ` AND ID = $${paramIndex++}`;
+                query += ` AND EVENTS_ID = $${paramIndex++}`;
                 values.push(id);
             }
             let result = await pool.query(query, values);
             if(result){
-                result = true;
+                let query = "DELETE FROM EVENTS WHERE 1 = 1\n";
+                if(id){
+                    query += ` AND ID = $1`;
+                }
+                let result = await pool.query(query, values);
             }
             return result;
         }catch(error){

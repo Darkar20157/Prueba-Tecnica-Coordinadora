@@ -27,6 +27,15 @@ class EventService{
         return res;
     }
 
+    static async editEventServices(userData) {
+        if(userData){
+            userData.active = true;
+            userData.issue_date = formatDate(new Date());
+        }
+        const res = await EventRepository.editEventRepository(userData);
+        return res;
+    }
+
     static async assistEventServices(userData) {
         const res = await EventRepository.assistEventRepository(userData);
         return res;
