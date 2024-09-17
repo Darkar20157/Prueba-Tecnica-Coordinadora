@@ -1,9 +1,72 @@
-<div class="container mt-10">
-    <h1>Tabla de eventos</h1>
+<div class="container mt-10 m-5">
+    <div class="titleandsignout">
+        <h1>Tabla de eventos</h1>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal3"><i class="fa-solid fa-right-from-bracket"></i></i></button>    
+    </div>
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal3"><i class="fa-solid fa-plus"></i></button><br>
     <div id="example-table"></div>
-    <caption>Lista de Eventos <button type="button" id="reload" class="btn btn-outline-primary"><i class="fa-solid fa-rotate-right"></i></button></caption>
+    <caption>Refrescar <button type="button" id="reload" class="btn btn-outline-primary"><i class="fa-solid fa-rotate-right"></i></button></caption>
 </div>
 <!-- Modal -->
+<div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalToggleLabel">Lista de Asistencia</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <div id="assist-table"></div>
+        </div>
+      </div>
+    </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Guardar Evento</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form id="form-save">
+                <div class="modal-body">
+                    <div>
+                        <h5>Fecha del Evento</h5>
+                        <input type="datetime-local" name="event_date_new" id="event_date_new" class="form-control" placeholder="Fecha del Evento" required>
+                    </div><br>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fa-solid fa-id-card"></i></span>
+                        </div>
+                        <input type="text" name="name_new" id="name_new" class="form-control" placeholder="Nombre" maxlength="64" required>
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fa-solid fa-person"></i></span>
+                        </div>
+                        <input type="text" name="description_new" id="description_new" class="form-control" placeholder="Descripcion" maxlength="64" required>
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fa-solid fa-mobile-retro"></i></span>
+                        </div>
+                        <input type="text" name="address_new" id="address_new" class="form-control" placeholder="Direccion" maxlength="64" required>
+                    </div>
+                    <div class="input-group">
+                        <span class="input-group-text">Ubicacion</span>
+                        <input type="text" name="data_location_lat_new" id="data_location_lat" placeholder="Ubicacion" class="form-control">
+                        <input type="text" name="data_location_lon_new" id="data_location_lon" placeholder="Ubicacion" class="form-control">
+                    </div><br>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="submit" class="btn btn-primary">Guardar cambios</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -15,7 +78,7 @@
                 <div class="modal-body">
                     <div>
                         <h5>Fecha del Evento</h5>
-                        <input type="date" name="event_date" id="event_date" class="form-control" placeholder="Fecha del Evento" required>
+                        <input type="datetime-local" name="event_date" id="event_date" class="form-control" placeholder="Fecha del Evento" required>
                     </div><br>
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
@@ -35,16 +98,15 @@
                         </div>
                         <input type="text" name="address" id="address" class="form-control" placeholder="Direccion" maxlength="64" required>
                     </div>
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text"><i class="fas fa-envelope"></i></span>
-                        </div>
-                        <input type="email" name="data_location" id="data_location" class="form-control" placeholder="Ubicacion" maxlength="120" required>
-                    </div>
+                    <div class="input-group">
+                        <span class="input-group-text">Ubicacion</span>
+                        <input type="text" name="data_location_lat" id="data_location_lat" placeholder="Ubicacion" class="form-control">
+                        <input type="text" name="data_location_lon" id="data_location_lon" placeholder="Ubicacion" class="form-control">
+                    </div><br>
                     <div class="form-check">
                         <input class="form-check-input" type="checkbox" id="active" name="active">
-                        <label class="form-check-label" for="flexCheckChecked">
-                            Habilitar Evento/Desahabilitar Evento
+                        <label class="form-check-label" for="active">
+                            Habilitar Evento/Desahibilitar Evento
                         </label>
                     </div>
                 </div>

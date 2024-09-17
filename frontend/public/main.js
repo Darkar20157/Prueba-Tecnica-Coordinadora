@@ -12,12 +12,16 @@ document.addEventListener("DOMContentLoaded", (event) => {
                 if(page === "login"){
                     await loadLoginScript(page);
                 }
+                if(page === 'home'){
+                    await loadLoginScript(page);
+                }
             })
             .catch(error => {
                 console.error("Error al cargar la pagina", error);
             })
     }
     async function loadLoginScript(page) {
+        console.log(page);
         const script = document.createElement('script');
         script.src = `./process/${page}.js`;
         script.onload = () => {

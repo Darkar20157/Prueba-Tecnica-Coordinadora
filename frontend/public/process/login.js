@@ -48,6 +48,7 @@ async function getUser(documentNro, email){
             console.error("Error al hacer la solicitud", error);
         });
         if(dataUser.document_nro.trim() === documentNro.trim() && dataUser.email.trim() === email.trim()){
+            console.log(localStorage.getItem('location'));
             localStorage.setItem('id', dataUser.id);
             Swal.fire({
                 title: "Sesion exitosa!",
@@ -55,6 +56,7 @@ async function getUser(documentNro, email){
                 icon: "success"
             }).then((result) => {
                 if(result.isConfirmed){
+                    localStorage.setItem('location', 'home');
                     pageDirections('home');
                 }
             });

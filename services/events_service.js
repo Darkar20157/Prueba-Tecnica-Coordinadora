@@ -12,12 +12,23 @@ class EventService{
         return res;
     }
     
+    static async getUsersAssistEventServices({id}) {
+        const res = await EventRepository.getUsersAssistEventRepository(id);
+        return res;
+    }
+
     static async saveEventServices(userData) {
         if(userData){
             userData.active = true;
             userData.issue_date = formatDate(new Date());
         }
         const res = await EventRepository.saveEventRepository(userData);
+        const resAssist = await EventRepository.saveEventAssist(res)
+        return res;
+    }
+
+    static async assistEventServices(userData) {
+        const res = await EventRepository.assistEventRepository(userData);
         return res;
     }
 
