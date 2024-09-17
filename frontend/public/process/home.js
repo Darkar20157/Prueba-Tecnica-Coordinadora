@@ -15,6 +15,11 @@ formEventSave.addEventListener('submit', async(e) => {
     const formNew = new FormData(formEventSave);
     await saveNewEvent(formNew);
 });
+async function signOut() {
+    localStorage.removeItem('location');
+    localStorage.removeItem('id');
+    window.location.reload();
+}
 
 async function getUsersAll(){
     let dataUser;
